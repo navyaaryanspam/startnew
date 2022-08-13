@@ -389,7 +389,7 @@ function change_state(changed_stated) {
     window.location.replace ('./user/adminadmin_access.html');
   }
   if (state == 'user_window'){
-    window.location.replace ('user_window.html'));
+    window.location.replace('user_window.html');
   }
 }
 /// button functions/////
@@ -415,13 +415,14 @@ function switchpage(page) {
 
 
 function admin_login(){
+  console.log('button pressed');
   eel.sendstate("admin_window");
-  console.log('button pressed')
+  
 }
 
 function user_login(){
+  consol.log('button pressed');
   eel.sendstate("user_window");
-  consol.log('button pressed')
 }
 
 
