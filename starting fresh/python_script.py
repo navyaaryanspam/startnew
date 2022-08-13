@@ -8,7 +8,7 @@ def sendstate(stateparam):
     print("change in state"+ " state is " + stateparam)
     global state
     state = stateparam
-    eel.switchpage(stateparam)
+    eel.switchpage(state)
 
 
 

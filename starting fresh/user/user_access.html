@@ -381,28 +381,22 @@
     <script type="text/javascript" src="/eel.js"></script>
     <script type = 'text/javascript'>
       
-eel.expose(change_state);
-state = ' '
-function change_state(changed_stated) {
-  state = changed_state;
-  if (state == 'admin_window'){
-    window.location.replace ('./user/adminadmin_access.html');
-  }
-  if (state == 'user_window'){
-    window.location.replace('user_window.html');
-  }
-}
-/// button functions/////
+
+
+/// switch page/////
 eel.expose(switchpage);
 function switchpage(page) {
   console.log(page);
   if (page == "admin_window") {
     console.log("switching to " + page);
-    change_state(page);
+    window.location.replace ('./user/adminadmin_access.html');
+
+    
   }
   if (page == "user_window") {
     console.log("switching to " + page);
-    change_state(page);
+    window.location.replace('user_window.html');
+    
   }
   
 
