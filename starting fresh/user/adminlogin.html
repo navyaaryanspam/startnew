@@ -104,15 +104,24 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 
 </style>
 <script type = 'text/javascript'>
+eel.expose(switchpage);
+function switchpage(page) {
+  console.log(page);
+  if (page == "adminwindow") {
+    console.log("switching to " + page);
+    window.location.replace ('adminwindow.html');
+  }
+  if (page == "errorpage") {
+    console.log("switching to " + page);
+    window.location.replace('erropage.html');
+  }
+
+  
+}
     function adminpass () {  
         console.log('button pressed')
-        if (document.getElementById('admin_pass_enter').value == 'admin@123'){
-            window.location.replace ('adminwindow.html');
-        }
-        if (document.getElementById('admin_pass_enter').value != 'admin@123'){
-          console.log(document.getElementById('admin_pass_enter').value)
-            window.location.replace ('www.google.com');
-        }
+        checklogin (document.getElementById('admin_username').value,document.getElementById('admin_pass_enter').value)
+        
        
   }
     </script>
@@ -123,7 +132,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
     
     <div class="login-form">
 
-      <input type="username" placeholder="username" required="" />
+      <input type="username" id = 'admin_username' placeholder="username" required="" />
        <input type="password" id = admin_pass_enter placeholder="admin pass" required/>
      
       <button class = 'admin_pass_enter' onclick = 'adminpass()'><span>submit</span></button>

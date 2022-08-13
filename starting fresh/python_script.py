@@ -10,6 +10,20 @@ def sendstate(stateparam):
     state = stateparam
     eel.switchpage(state)
 
+@eel.expose
+def checklogin(passwordparam):
+    print("login creds are username: " + usernameparam + " password: " + passwordparam)
+    global username
+    global password
+    username = usernameparam
+    password = passwordparam
+    if (username == "admin" and password == "admin@123"):
+        #admin
+        eel.switchpage("adminwindow")
+
+    else:
+        #not admin
+        eel.switchpage("errorpage")
 
 
 
