@@ -431,7 +431,7 @@ function user_login(){
         <div class="sign-in" id="sign-in">
           <h1>Welcome Back!</h1>
           <p>To keep connected with us please login with your personal info</p>
-          <button class="switch-button" id="slide-right-button" onclick = user_login()>Sign In</button>
+          <button class="switch-button" id="slide-right-button" >Sign In</button>
           <button class="switch-button" id="admin_login" onclick = admin_login()>log in as admin </button>
         </div>
         <div class="sign-up" id="sign-up">
@@ -493,7 +493,7 @@ function user_login(){
             <input type="text" placeholder="Name"/>
             <input type="email" placeholder="Email"/>
             <input type="password" placeholder="Password"/>
-            <button class="control-button up" onclick = 'openuserwindow()'>Sign Up</button>
+            <button class="control-button up" onclick = 'user_window()'>Sign Up</button>
           </form>
         </div>
       </div>
@@ -565,9 +565,6 @@ function user_login(){
   openSignUpButton.addEventListener("click", openSignUp, false);
   openSignInButton.addEventListener("click", openSignIn, false);
   
-  function openuserwindow(){
-      console.log('user window opening');
-      window.location.replace ('userwindow.html');
-  }
+  
     </script>
   
