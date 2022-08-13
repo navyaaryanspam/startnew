@@ -1,16 +1,30 @@
 import mysql.connector
+import eel
 mydb=mysql.connector.connect(host='localhost',user='root',passwd='Nav@12905')
 mycursor = mydb.cursor()
-def create_database():
-    mycursor.execute("create database if not exists THE_LAST_CHAPTER")
-create_database()
+eel.init('user')
+state =  ' '
+def create_database(dbname):
+    mycursor.execute(("create database if not exists {}").format(dbname))
+    mycursor.execute (('USE{}').format(dbname))
+    print ('db created and now in use')
 
-mycursor.execute ('USE the_last_chapter')
-# admin book inventory
-try:
-    mycursor.execute("create table  book_inventory (book_id int(5) primary key,book_name varchar(20),author_name varchar(20),genre_name varchar(20),price int(5),ratings int(5))")
+def create_table(tablename , dataformat):
+    mycursor.execute(("create table if not exists {}({})").format(tablename,dataformat))
+    print ('created table ', tablename)
 
-except :
-    print ('table already exists')
+@eel.expose
+def sendstate(stateparam):
+    print("change in state"+ " state is " + stateparam)
+    global state
+    state = stateparam
+    statechangereact(stateparam)
+    eel.switchpage(stateparam)
+def statechangereact (stateparam):
+    if (stateparam == 'loginpage'):
+        create_database ('THE_LAST_CHAPTER')
+        
+        
+eel.start('useraccess.html')
 
 

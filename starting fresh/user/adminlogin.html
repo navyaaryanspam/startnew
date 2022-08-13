@@ -5,6 +5,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet"></link>
 <style>
     body {
+      background-image: url('admin_login_bg.png');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: 100% 100%;
+    
       background-color : #9fc2de;
     
       background-size: 100% 100%;
@@ -104,7 +109,12 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
         if (document.getElementById('admin_pass_enter').value == 'admin@123'){
             window.location.replace ('adminwindow.html');
         }
-    }
+        if (document.getElementById('admin_pass_enter').value != 'admin@123'){
+          console.log(document.getElementById('admin_pass_enter').value)
+            window.location.replace ('www.google.com');
+        }
+       
+  }
     </script>
 
 
