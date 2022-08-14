@@ -35,7 +35,7 @@ function switchpage(page) {
   console.log(page);
   if (page == "errorpage") 
     console.log("switching to " + page);
-    window.location.replace ('adminlogin.html');
+    window.location.replace ('useracccess.html');
   }
 function back (){
     eel.sendstate ('errorpage')
@@ -52,7 +52,7 @@ function back (){
   
   <body>
   
-    <section class="page_404">]
+    <section class="page_404">
         
       <div class="container">
           <div class="row">	
@@ -66,10 +66,10 @@ function back (){
           
           <div class="contant_box_404">
           <h3 class="h2">
-          Look like you're lost! password was wrong
+          Look like you're lost! 
           </h3>
           
-          <p>the page you are looking for not avaible!</p>
+          <p>the password you entered was wrong!</p>
           
           <button id = 'back' on click = back()> go back to login </button>
       </div>
