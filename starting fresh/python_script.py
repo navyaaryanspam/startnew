@@ -11,7 +11,7 @@ def sendstate(stateparam):
     eel.switchpage(state)
 
 @eel.expose
-def checklogin(passwordparam):
+def checklogin(usernameparam,passwordparam):
     print("login creds are username: " + usernameparam + " password: " + passwordparam)
     global username
     global password

@@ -16,7 +16,11 @@
  .four_zero_four_bg h1{
  font-size:80px;
  }
- 
+ .backbutton {
+  background-color:#f8f9f9 ;
+  border: 0cm;
+  size:250px;
+  width:1000px;
   .four_zero_four_bg h3{
 			 font-size:80px;
 			 }
@@ -29,6 +33,8 @@
     display: inline-block;}
 	.contant_box_404{ margin-top:-50px;}
 </style>
+<script type="text/javascript" src="/eel.js"></script>
+
 <script type = 'text/javascript'>
 eel.expose(switchpage);
 function switchpage(page) {
@@ -37,17 +43,17 @@ function switchpage(page) {
     console.log("switching to " + page);
     window.location.replace ('useracccess.html');
   }
-function back (){
-    eel.sendstate ('errorpage')
-
-}
+  function backbutton(){
+    console.log ('back button pressed')
+    window.location.replace ('adminlogin.html')
+  }
 </script>
 <head>
  
   
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Arvo'>
-    
+  <head><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous"></head>
   </head>
   
   <body>
@@ -69,13 +75,14 @@ function back (){
           Look like you're lost! 
           </h3>
           
-          <p>the password you entered was wrong!</p>
+          <p>the username or password you entered was wrong! try again</p>
           
-          <button id = 'back' on click = back()> go back to login </button>
+          
       </div>
           </div>
           </div>
           </div>
+          <button class = backbutton id = 'back button' onclick = 'backbutton()'> go back to login</button>
       </div>
   </section>
   
