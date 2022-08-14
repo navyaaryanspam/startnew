@@ -102,6 +102,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
   color: #EF3B3A;
 }
 
+
 </style>
 <script type = "text/javascript" src="/eel.js">
 eel.expose(switchpage);
@@ -115,15 +116,20 @@ function switchpage(page) {
     console.log("switching to " + page);
     window.location.replace('erropage.html');
   }
-}
+  
+  }
+
     function adminpass () {  
         console.log('button pressed')
         checklogin (document.getElementById('admin_username').value,document.getElementById('admin_pass_enter').value)
         
        
   }
+ 
     </script>
 
+
+  
 
 <div class="login-page">
   <div class="form">
