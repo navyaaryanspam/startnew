@@ -103,7 +103,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 </style>
-<script type = 'text/javascript'>
+<script type = "text/javascript" src="/eel.js">
 eel.expose(switchpage);
 function switchpage(page) {
   console.log(page);
@@ -115,8 +115,6 @@ function switchpage(page) {
     console.log("switching to " + page);
     window.location.replace('erropage.html');
   }
-
-  
 }
     function adminpass () {  
         console.log('button pressed')
@@ -135,7 +133,7 @@ function switchpage(page) {
       <input type="username" id = 'admin_username' placeholder="username" required="" />
        <input type="password" id = admin_pass_enter placeholder="admin pass" required/>
      
-      <button class = 'admin_pass_enter' onclick = 'adminpass()'><span>submit</span></button>
+      <button class = 'admin_pass_enter' onclick = "adminpass ()" ><span>submit</span></button>
 
       
      
