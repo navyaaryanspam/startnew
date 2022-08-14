@@ -23,6 +23,12 @@ opacity: .95;
   padding: 8% 0 0;
   margin: auto;
 }
+.backbutton {
+  background-color:#98D4E1 ;
+  border: 0cm;
+  size:250px;
+  width:1000px;
+}
 .form {
   
   z-index: 1;
@@ -126,9 +132,14 @@ function switchpage(page) {
         eel.checklogin(document.getElementById('admin_username').value, document.getElementById('admin_pass_enter').value)
              
   }
+  function backbutton(){
+    console.log ('back button pressed')
+    window.location.replace ('useraccess.html')
+  }
+  
     </script>
 
-
+<head><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous"></head>
 <div class="login-page">
   <div class="form">
     
@@ -138,9 +149,12 @@ function switchpage(page) {
        <input type="password" id = admin_pass_enter placeholder="admin pass" required/>
      
       <button class = 'admin_pass_enter' onclick = "adminpass()" ><span>submit</span></button>
-
+      
       
      
     </div>
+    
+
   </div>
+  <button class = backbutton id = 'back button' onclick = 'backbutton()'><i class="fas fa-backward"></i> </button>
 </div>
