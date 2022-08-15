@@ -409,7 +409,7 @@ function admin_login(){
 }
 
 function userlogin(){
-  consol.log('button pressed');
+  console.log('button pressed');
   eel.sendstate("signinwindow");
 }
 function register() {
@@ -445,7 +445,7 @@ function register() {
             <input type="email" placeholder="Email"/>
             <input type="password" placeholder="Password"/>
             
-            <button class="control-button in" onclick = userlogin()>Sign In</button>
+            <button class="control-button in" onclick = 'userlogin()' >Sign In</button>
             
           </form>
         </div>
