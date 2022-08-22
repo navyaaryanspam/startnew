@@ -4,14 +4,33 @@ mydb=mysql.connector.connect(host='localhost',user='root',passwd='Nav@12905')
 mycursor = mydb.cursor()
 eel.init('user')
 state =  ' '
+
+def insert_into_table(tablename, values):
+    mycursor.execute(("insert into {} values({})").format(tablename))
+
+@eel.expose
+def getall(tablename):
+    mycursor.execute(("select * from {}").format(tablename))
+    returnlist = []
+    for row in mycursor:
+        print(row)
+        returnlist.append(row)
+    eel.sqlreturn(returnlist)
+
+@eel.expose
+def getspecific(tablename, condition):
+    mycursor.execute(("select * from {} where {}").format(tablename, condition))
+
+@eel.expose
 def create_database(dbname):
     mycursor.execute(("create database if not exists {}").format(dbname))
-    mycursor.execute (('USE{}').format(dbname))
-    print ('db created and now in use')
+    mycursor.execute(("use {}").format(dbname))
+    print(("db created {} and now in use").format(dbname))
 
-def create_table(tablename , dataformat):
-    mycursor.execute(("create table if not exists {}({})").format(tablename,dataformat))
-    print ('created table ', tablename)
+@eel.expose
+def create_table(tablename, dataformat):
+    mycursor.execute(("create table if not exists {} ({})").format(tablename, dataformat))
+    print(("table {} created").format(tablename))
 
 @eel.expose
 def sendstate(stateparam):
@@ -20,6 +39,7 @@ def sendstate(stateparam):
     state = stateparam
     statechangereact(stateparam)
     eel.switchpage(stateparam)
+    
 def statechangereact (stateparam):
     if (stateparam == 'loginpage'):
         create_database ('THE_LAST_CHAPTER')
