@@ -410,7 +410,8 @@ function admin_login(){
 
 function userlogin(){
   console.log('button pressed');
-  eel.sendstate("signinwindow");
+  eel.checklogin(document.getElementById("loginemail").value, document.getElementById("loginpassword").value);
+  //eel.sendstate("signinwindow");
 }
 function register() {
   console.log ('button pressed');
@@ -442,8 +443,8 @@ function register() {
           </div>
           <p class="small"> using your registered email id:</p>
           <form id="sign-in-form">      
-            <input type="email" placeholder="Email"/>
-            <input type="password" placeholder="Password"/>
+            <input type="email" placeholder="Email" id="loginemail" />
+            <input type="password" placeholder="Password" id="loginpassword" />
             
             <button class="control-button in" onclick = 'userlogin()' >Sign In</button>
             

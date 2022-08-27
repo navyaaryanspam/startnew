@@ -1,9 +1,9 @@
 import mysql.connector
 import eel
-mydb=mysql.connector.connect(host='localhost',user='root',passwd='Nav@12905')
+mydb=mysql.connector.connect(host='localhost',user='root',passwd='root')
 mycursor = mydb.cursor()
 eel.init('user')
-state =  ' '
+state =  ''
 
 def insert_into_table(tablename, values):
     mycursor.execute(("insert into {} values({})").format(tablename))
@@ -44,7 +44,24 @@ def statechangereact (stateparam):
     if (stateparam == 'loginpage'):
         create_database ('THE_LAST_CHAPTER')
         
-        
+
+@eel.expose
+def checklogin(usernameparam, passwordparam):
+    print("login creds are username: " + usernameparam + " password: " + passwordparam)
+    global username
+    global password
+    username = usernameparam
+    password = passwordparam
+    if (username == "admin" and password == "root"):
+        #admin
+        sendstate("signinwindow")
+
+    else:
+        #not admin
+        #eel.switchpage("loginfailed")
+        pass
+
+
 eel.start('useraccess.html')
 
 
