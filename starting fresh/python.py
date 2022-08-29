@@ -29,7 +29,8 @@ def create_database(dbname):
 
 @eel.expose
 def create_table(tablename, dataformat):
-    mycursor.execute(("create table if not exists {} ({})").format(tablename, dataformat))
+    print((("create table if not exists {} ({})").format(tablename, dataformat.strip("'"))))
+    mycursor.execute(("create table if not exists {} ({})").format(tablename, dataformat.strip("'")))
     print(("table {} created").format(tablename))
 
 @eel.expose
