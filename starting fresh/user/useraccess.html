@@ -396,10 +396,10 @@ function switchpage(page) {
     console.log("switching to " + page);
     window.location.replace('userwindow.html');
   }
-  if (page == "signupwindow") {
-    console.log("switching to " + page);
-    location.reload();
-  }
+ //if (page == "signupwindow") {
+   //console.log("switching to " + page);
+    //location.reload();
+  //}
 }
 ///// button functions
 function admin_login(){
@@ -410,12 +410,13 @@ function admin_login(){
 
 function userlogin(){
   console.log('button pressed');
-  eel.checklogin(document.getElementById("loginemail").value, document.getElementById("loginpassword").value);
-  //eel.sendstate("signinwindow");
+  eel.sendstate("signinwindow");
 }
 function register() {
   console.log ('button pressed');
-  eel.sendstate ('signupwindow');
+ eel.create_table('customers','name varchar(25),emailid varchar (50),password varchar(25), DOB date');
+ eel.insert_into_table('customers',(document.getElementById('nameinput'), document.getElementById('emailinput'), document.getElementById('passwordinput'), document.getElementById('dateinput')));
+  //eel.sendstate ('signupwindow');
 }
 
 
@@ -443,8 +444,8 @@ function register() {
           </div>
           <p class="small"> using your registered email id:</p>
           <form id="sign-in-form">      
-            <input type="email" placeholder="Email" id="loginemail" />
-            <input type="password" placeholder="Password" id="loginpassword" />
+            <input type="email" placeholder="Email"/>
+            <input type="password" placeholder="Password"/>
             
             <button class="control-button in" onclick = 'userlogin()' >Sign In</button>
             
@@ -455,13 +456,13 @@ function register() {
           <div class="social-media-buttons">
           </div>
           <p class="small">Enter your details for registration:</p>
-          <form id="sign-up-form">
-            <input type="text" placeholder="Name"/>
-            <input type="email" placeholder="email id"/>
-            <input type="password" placeholder="Password"/>
-            <input type="date" placeholder = 'DOB'/>
-            <button class="control-button up" on click = register() >Sign Up</button>
-          </form>
+          <div id="sign-up-form">
+            <input type="text" placeholder="Name" id="nameinput" />
+            <input type="email" placeholder="email id" id="emailidinput" />
+            <input type="password" placeholder="Password" id="passwordinput" />
+            <input type="date" placeholder = 'DOB' id="dateinput" />
+            <button class="control-button up" onclick = 'register()' >Sign Up</button>
+          </div>
         </div>
       </div>
     </div>

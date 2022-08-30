@@ -4,9 +4,10 @@ mydb=mysql.connector.connect(host='localhost',user='root',passwd='root')
 mycursor = mydb.cursor()
 eel.init('user')
 state =  ''
-
+@eel.expose
 def insert_into_table(tablename, values):
-    mycursor.execute(("insert into {} values({})").format(tablename))
+    mycursor.execute(("insert into {} values({})").format(tablename,values))
+    mycursor.commit()
 
 @eel.expose
 def getall(tablename):
@@ -29,7 +30,8 @@ def create_database(dbname):
 
 @eel.expose
 def create_table(tablename, dataformat):
-    mycursor.execute(("create table if not exists {} ({})").format(tablename, dataformat))
+    print((("create table if not exists {} ({})").format(tablename, dataformat.strip("'"))))
+    mycursor.execute(("create table if not exists {} ({})").format(tablename, dataformat.strip("'")))
     print(("table {} created").format(tablename))
 
 @eel.expose
