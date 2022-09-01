@@ -380,51 +380,7 @@
 
 
   
-    <script type="text/javascript" src="/eel.js"></script>
-    <script type = 'text/javascript'>
-    
-eel.sendstate ('loginpage')  
 
-
-/// switch page/////
-eel.expose(switchpage);
-function switchpage(page) {
-  console.log(page);
-  if (page == "adminwindow") {
-    console.log("switching to " + page);
-    window.location.replace ('adminlogin.html');
-  }
-  if (page == "signinwindow") {
-    console.log("switching to " + page);
-    window.location.replace('userwindow.html');
-  }
- //if (page == "signupwindow") {
-   //console.log("switching to " + page);
-    //location.reload();
-  //}
-}
-///// button functions
-function admin_login(){
-  console.log('button pressed');
-  eel.sendstate("adminwindow");
-  
-}
-
-function userlogin(){
-  console.log('button pressed');
-  eel.sendstate("signinwindow");
-}
-function register() {
-  console.log ('button pressed');
- eel.create_table('customers','name varchar(25),emailid varchar (50),password varchar(25), DOB date');
- eel.insert_into_table('customers',(document.getElementById('nameinput'), document.getElementById('emailinput'), document.getElementById('passwordinput'), document.getElementById('dateinput')));
-  //eel.sendstate ('signupwindow');
-}
-
-
-
-/////// button functions end /////////////////
-</script>
      
     <div class="container">
       <div class="overlay" id="overlay">
@@ -469,6 +425,54 @@ function register() {
         </div>
       </div>
     </div>
+        <script type="text/javascript" src="/eel.js"></script>
+    <script type = 'text/javascript'>
+    
+eel.sendstate ('loginpage')  
+
+
+/// switch page/////
+eel.expose(switchpage);
+function switchpage(page) {
+  console.log(page);
+  if (page == "adminwindow") {
+    console.log("switching to " + page);
+    window.location.replace ('adminlogin.html');
+  }
+  if (page == "signinwindow") {
+    console.log("switching to " + page);
+    window.location.replace('userwindow.html');
+  }
+ //if (page == "signupwindow") {
+   //console.log("switching to " + page);
+    //location.reload();
+  //}
+}
+///// button functions
+function admin_login(){
+  console.log('button pressed');
+  eel.sendstate("adminwindow");
+  
+}
+
+function userlogin(){
+  console.log('button pressed');
+  eel.sendstate("signinwindow");
+}
+function register() {
+  console.log ('button pressed');
+ eel.create_table('customers','name varchar(25),emailid varchar (50),password varchar(25), DOB date');
+ console.log(document.getElementById('nameinput').value);
+ console.log((document.getElementById('nameinput').value + "," + document.getElementById('emailidinput').value+ "," + document.getElementById('passwordinput').value+ "," + document.getElementById('dateinput').value));
+
+ eel.insert_into_table('customers', ('"' + document.getElementById('nameinput').value + '" , "' + document.getElementById('emailidinput').value + '", "' + document.getElementById('passwordinput').value + '" ,"' + document.getElementById('dateinput').value + '"'));
+  //eel.sendstate ('signupwindow');
+}
+
+
+
+/////// button functions end /////////////////
+</script>
     <script type = 'text/javascript'>
   var overlay = document.getElementById("overlay");
   

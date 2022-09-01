@@ -6,8 +6,10 @@ eel.init('user')
 state =  ''
 @eel.expose
 def insert_into_table(tablename, values):
+    print (values)
+    print(("insert into {} values({})").format(tablename,values) )
     mycursor.execute(("insert into {} values({})").format(tablename,values))
-    mycursor.commit()
+    mydb.commit()
 
 @eel.expose
 def getall(tablename):
@@ -65,5 +67,4 @@ def checklogin(usernameparam, passwordparam):
 
 
 eel.start('useraccess.html')
-
 
